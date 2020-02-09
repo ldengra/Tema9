@@ -49,9 +49,6 @@ public class Main {
             }
         }while (!validado);
 
-
-
-
         return numero;
     }
 }
