@@ -20,7 +20,11 @@ public class Main {
         System.out.println("Has introducido " +o1.getContador()+ " datos incorrectos");
     }
 
-
+    /**
+     * Metodo para leer numeros y validarlos, si hay alguna excepcion, saltara un mensaje pidiendo que introduzcas un numero.
+     * He creado el Objeto o1 porque no sabia de que manera devolver las veces que se ha introducido un dato erroneo
+     * @return
+     */
     public static float leerNumeros(){
         Scanner input = new Scanner(System.in);
         boolean validado;
@@ -29,7 +33,7 @@ public class Main {
 
         do{
             try {
-                System.out.println("OlA KmPñer0, mTe NmRs sta Mtr 1 Ngtib");
+                System.out.println("OlA KmPñer0, mTe klker nUm");
                 numero = Float.parseFloat(input.nextLine());
                 validado = true;
             }catch (NumberFormatException NFE){
