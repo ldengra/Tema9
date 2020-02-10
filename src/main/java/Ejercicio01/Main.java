@@ -13,7 +13,7 @@ public class Main {
             contador++;
         }while(!negativo);
 
-        for (int i = 0; i < numeros.length; i++) {
+        for (int i = 0; i < contador-1; i++) {
             System.out.println(numeros[i]);
 
         }
