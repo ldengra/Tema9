@@ -6,15 +6,15 @@ static boolean salir = false;
     public static void main(String[] args) {
 
         int contador = 0;
-        int[] numeros = new int [500];
+        int[] numeros = new int [10];
 
         do{
             numeros[contador] = leerNumeros();
             contador++;
-        }while(salir);
+        }while(!salir);
         Arrays.sort(numeros);
 
-        System.out.println(numeros[contador-1]);
+        System.out.println(numeros[numeros.length-1]);
     }
 
 
@@ -32,12 +32,13 @@ static boolean salir = false;
                 System.out.println("Inserta un numero, si insertas una letra, se acaba.");
                 numero = Integer.parseInt(input.nextLine());
                 validado = true;
+                salir = false;
             }catch (NumberFormatException NFE){
                 validado = false;
-                System.err.println("Has introducido algo que no es un numero, introduce un numero!!.");
+                System.err.println("Has introducido algo que no es un numero.");
                 salir = true;
             }
-        }while (!validado);
+        }while (validado);
 
         return numero;
     }

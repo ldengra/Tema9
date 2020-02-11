@@ -3,6 +3,7 @@ package Ejercicio02;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Main {
+    static int contador = 0;
     static Objeto o1 = new Objeto();
     public static void main(String[] args) {
         float[] numeros = new float[10];
@@ -17,7 +18,7 @@ public class Main {
         for (int i = 9; i >= 0; i--) {
             System.out.println(numeros[i]);
         }
-        System.out.println("Has introducido " +o1.getContador()+ " datos incorrectos");
+        System.out.println("Has introducido " +contador+ " datos incorrectos");
     }
 
     /**
@@ -37,8 +38,9 @@ public class Main {
                 numero = Float.parseFloat(input.nextLine());
                 validado = true;
             }catch (NumberFormatException NFE){
-                nFallos++;
-                o1.setContador(nFallos);
+                //nFallos++;
+                //o1.setContador(nFallos);
+                contador++;
                 validado = false;
                 System.err.println("Has introducido algo que no es un numero, introduce un numero!!.");
             }

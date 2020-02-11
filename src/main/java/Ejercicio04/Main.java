@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         int[] numeros = new int[5];
 
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < numeros.length; i++){
         numeros[i] = leerNumeros();
         }
         for (int i = 0; i < numeros.length; i++){
@@ -26,14 +26,17 @@ public class Main {
             try {
                 System.out.println("Inserta un numero");
                 numero = Integer.parseInt(input.nextLine());
-                validado = true;
-            }catch (NumberFormatException NFE){
                 validado = false;
+            }catch (NumberFormatException NFE){
+                validado = true;
                 System.err.println("Has introducido algo que no es un numero, introduce un numero!!.");
             }catch (ArrayIndexOutOfBoundsException AIOOBE){
                 System.out.println("El array se ha llenado");
-                validado = false;
+                validado = true;
 
+            }catch (NullPointerException NPE){
+                System.out.println("No se ha creado el array");
+                validado = true;
             }
         }while (!validado);
 
