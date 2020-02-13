@@ -1,4 +1,6 @@
 package Ejercicio09;
+import Ejercicio11.Lib;
+
 import java.util.Scanner;
 
 public class Main {
