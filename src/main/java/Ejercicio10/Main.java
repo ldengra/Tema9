@@ -89,8 +89,8 @@ public class Main {
 
                 delaySegundo(3000);
             }while(!incorrecta); //si el valor del boolean no cambia, seguimos haciendo el bucle, pero cuando
-        //el valor cambie, como por ejemplo en el 0, haremos que salga del bucle y se termineel programa.
-        lector.close(); //cerramos el lector porque no tenemos que usarlo mas.
+                //el valor cambie, como por ejemplo en el 0, haremos que salga del bucle y se termineel programa.
+            lector.close(); //cerramos el lector porque no tenemos que usarlo mas.
     }
 
     public static int leerNumeros(){
