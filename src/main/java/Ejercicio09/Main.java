@@ -5,7 +5,7 @@ public class Main {
     public static  Scanner lector = new Scanner(System.in);
     public static void main(String[] args) {
         int opcion;
-        String[] cadena = {"Antonio", "Mike", "Oscar", null, "Germán"};
+        String[] cadena = {"Pizza", "Canelones", "Macarrones", null, "Sushi"};
         int[] array = new int[3];
         do {
 
@@ -15,13 +15,25 @@ public class Main {
                     System.out.println("Hasta la próxima.");
                     break;
                 case 1:
-                    generarExcepcionAE();
+                    try {
+                        generarExcepcionAE();
+                    }catch (ExcepcionAE AE){
+                        System.out.println("BRUT");
+                    }
                     break;
                 case 2:
-                    generarExcepcionNPE(cadena);
+                    try {
+                        generarExcepcionNPE(cadena);
+                    }catch (ExcepcionNPE NPE){
+                        System.out.println("BRUT");
+                    }
                     break;
                 case 3:
-                    generarIOOBE(array);
+                    try {
+                        generarIOOBE(array);
+                    }catch (ExcepcionIOOBE IOOBE){
+                        System.out.println("BRUT");
+                    }
                 default:
                     break;
             }
