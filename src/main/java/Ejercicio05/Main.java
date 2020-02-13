@@ -1,4 +1,4 @@
-package Ejercicio05;
+/*package Ejercicio05;
 import java.util.Scanner;
 public class Main {
     static Scanner input = new Scanner(System.in);
@@ -20,4 +20,4 @@ public class Main {
 
         return nombre;
     }
-}
+}*/
