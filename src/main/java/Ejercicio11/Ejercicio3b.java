@@ -64,7 +64,7 @@ public class Ejercicio3b {
         String fechaNacimientoString;
         GregorianCalendar fechaNacimiento = null;
         Grupo grupo = null;
-        long telefono;
+        int telefono;
         Lib.limpiarPantalla();
 
         if(contadorAlumnos < alumnos.length) {
@@ -72,18 +72,18 @@ public class Ejercicio3b {
             System.out.println("*** NUEVO ALUMNO ***");
             do {
                 System.out.println("Nia: ");
-                nia = Integer.parseInt(lector.nextLine());
+                nia = leerNumeros();
                 validado = nia < 1999999 && nia > 0;
                 if (!validado) {
                     System.out.println("Nia debe estar comprendido en el rango [0-1999999]");
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                 }
                 /** Comprobamos que dicho NIA no esté duplicado **/
                 if (buscarAlumnoPorNia(nia) >= 0) {
                     validado = false;
                     System.out.println("El nia introducido ya corresponde a un alumno.");
                     System.out.println("Introduzca otro por favor");
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                 }
             } while (!validado);
 
@@ -93,7 +93,7 @@ public class Ejercicio3b {
                 validado = nombre.length() > 2;
                 if (!validado) {
                     System.out.println("Nombre debe tener almenos 2 caracteres");
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                 }
             } while (!validado);
 
@@ -103,7 +103,7 @@ public class Ejercicio3b {
                 validado = apellidos.length() > 2;
                 if (!validado) {
                     System.out.println("Apellidos debe tener almenos 2 caracteres");
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                 }
             } while (!validado);
 
@@ -119,7 +119,7 @@ public class Ejercicio3b {
                 } catch (ParseException pe) {
                     validado = false;
                     System.out.println("El formato de la fecha de nacimiento no es válido. Recuerde (dd-mm-yyyy).");
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                 }
             } while (!validado);
 
@@ -130,7 +130,7 @@ public class Ejercicio3b {
                     System.out.println("Código: " + grupos[i].getCodigo() + ", nombre: " + grupos[i].getNombre());
                 }
                 System.out.println("Código del grupo: ");
-                int codigo = Integer.parseInt(lector.nextLine());
+                int codigo = leerNumeros();
                 validado = false;
                 i = 0;
                 /** Buscamos que el código que ha introducido el usuario corresponde a un grupo válido **/
@@ -147,7 +147,7 @@ public class Ejercicio3b {
 
             do {
                 System.out.println("Teléfono: ");
-                telefono = Long.parseLong(lector.nextLine());
+                telefono = leerNumeros();
                 /** Para facilitar la introducción de datos permitimos poner números pequeños como teléfono **/
                 validado = telefono > 0 && telefono < 999999999;
             } while (!validado);
@@ -161,7 +161,7 @@ public class Ejercicio3b {
             System.out.println("Imposible añadir el alumno.");
             System.out.println("El array de alumnos está lleno");
         }
-        Lib.pausa();
+        delaySegundo(3000);//Lib.pausa();
     }
 
     private void bajaAlumno() {
@@ -170,7 +170,7 @@ public class Ejercicio3b {
         Lib.limpiarPantalla();
         System.out.println("*** BAJA ALUMNO ***" );
         System.out.println("Nia: ");
-        nia = Integer.parseInt(lector.nextLine());
+        nia = leerNumeros();
         pos = buscarAlumnoPorNia(nia);
         if(pos >= 0) {
             alumnos[pos] = null;
@@ -180,7 +180,7 @@ public class Ejercicio3b {
         } else {
             System.out.println("No existe ningún alumno con el nia " + nia);
         }
-        Lib.pausa();
+        delaySegundo(3000);//Lib.pausa();
     }
 
     /**
@@ -216,7 +216,7 @@ public class Ejercicio3b {
                         System.out.println("Código: " + grupos[i].getCodigo() + ", nombre: " + grupos[i].getNombre());
                     }
                     System.out.println("Código del grupo: ");
-                    codigo = Integer.parseInt(lector.nextLine());
+                    codigo = leerNumeros();
                     alumnosGrupo = buscarAlumnoPorGrupo(codigo);
                     if (alumnosGrupo != null) {
                         for (i = 0; i < alumnosGrupo.length; i++) {
@@ -225,14 +225,14 @@ public class Ejercicio3b {
                     } else {
                         System.out.println("No se han encontrado alumnos del grupo con código " + codigo);
                     }
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                     break;
                 case 2:
                     //Por edad
                     int edad;
                     Alumno[] alumnosEdad;
                     System.out.println("Edad: ");
-                    edad = Integer.parseInt(lector.nextLine());
+                    edad = leerNumeros();
                     alumnosEdad = buscarAlumnoPorEdad(edad);
                     if (alumnosEdad != null) {
                         for (i = 0; i < alumnosEdad.length; i++) {
@@ -241,20 +241,20 @@ public class Ejercicio3b {
                     } else {
                         System.out.println("No se han encontrado alumnos que tengan " + edad + " años");
                     }
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                     break;
                 case 3:
                     //Por nia
                     int nia;
                     System.out.println("Nia: ");
-                    nia = Integer.parseInt(lector.nextLine());
+                    nia = leerNumeros();
                     int pos = buscarAlumnoPorNia(nia);
                     if(pos >= 0) {
                         System.out.println(alumnos[pos].toString());
                     } else {
                         System.out.println("No se ha encontrado ningún alumno con el nia " + nia);
                     }
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                     break;
                 case 4:
                     //Por apellidos
@@ -270,11 +270,11 @@ public class Ejercicio3b {
                     } else {
                         System.out.println("No se han encontrado alumnos que tengan " + apellidos + " como apellidos");
                     }
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                     break;
                 case 5:
                     mostrarTodos();
-                    Lib.pausa();
+                    delaySegundo(3000);//Lib.pausa();
                     break;
             }
         } while (opcion != 0);
@@ -332,17 +332,17 @@ public class Ejercicio3b {
             System.out.println("---------------------");
             System.out.println("0. Salir\n");
 
-
+            //ESTE NO LO HE PASADO AL METODO PORQUE QUERIA HACER UNA DOBLE COMPROBACION
             try{
                 System.out.println("Elija una opción: ");
-                opcion = Integer.parseInt(lector.nextLine());
+                opcion = Lib.aleatorio(0,100);//Integer.parseInt(lector.nextLine());
                 validado = opcion >= 0 && opcion <= 3;
                 if(!validado){
-                    System.out.println("Has insertado un numero incorrecto");
+                    System.err.println("Has insertado una opcion que no existe. Vuelve a intentarlo");
                 }
 
             }catch (NumberFormatException NFE) {
-                System.out.println("Has insertado una opcion incorrecta. Vuelve a intentarlo");
+                System.err.println("Has introducido un caracter desconocido. Vuelve a intentarlo");
                 validado = false;
             }
             }while (!validado);
@@ -366,10 +366,10 @@ public class Ejercicio3b {
             System.out.println("----------------");
             System.out.println("0. Volver al menú principal\n");
             System.out.println("Elija una opción: ");
-            opcion = Integer.parseInt(lector.nextLine());
+            opcion = leerNumeros();
             if(opcion < 0 || opcion > 5) {
                 System.out.println("Elija una opción del menú [0-5]");
-                Lib.pausa();
+                delaySegundo(3000);//Lib.pausa();
             }
         } while (opcion < 0 || opcion > 5);
         return opcion;
@@ -480,4 +480,31 @@ public class Ejercicio3b {
         }
         return alumnosApellidos;
     }
+
+    public static int leerNumeros(){
+        Scanner input = new Scanner(System.in);
+        boolean validado;
+        int numero = 0;
+        do{
+            try {
+                numero = Lib.aleatorio(0,10);
+                        //Integer.parseInt(input.nextLine());
+                validado = true;
+
+            }catch (NumberFormatException NFE){
+                validado = false;
+                System.err.println("Has introducido algo que no es un numero, introduce un numero!!.");
+            }
+        }while (!validado);
+
+        return numero;
+    }
+
+    private static void delaySegundo(int ms) {
+        try
+        {
+            Thread.sleep(ms);
+        }catch(InterruptedException e){}
+    }
 }
+
